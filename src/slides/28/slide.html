@@ -1,0 +1,24 @@
+<article>
+  <h3>
+    Les incontournables – module Express
+  </h3>
+  <ul>
+    <li>Framework pour application web Node :
+      <ul>
+        <li>Minimaliste et flexible</li>
+      </ul>
+    </li>
+    <li>Basé sur le middleware connect</li>
+    <li>Définition de routes sophistiquées</li>
+    <li>Injection de moteur de rendu : jade, ejs, consolidate</li>
+  </ul>
+  <section>
+    <pre>
+var express = require('express');
+var app = express();
+app.get('/hello.txt', function(req, res){
+  res.send('Hello World');
+});
+app.listen(3000);</pre>
+  </section>
+</article>

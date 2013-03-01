@@ -1,0 +1,40 @@
+<article>
+  <h3>
+    Asynchrone multi steps – pattern / module Step
+  </h3>
+  <section style="position: absolute; left: 40px;">
+    <pre>
+step1(params, function (result) {
+  var n = 0;
+  var next = function () {
+    n++;
+    if (n === 3) {
+      fini();
+    }
+  };
+  step2(result, next);
+  step3(result, next);
+  step4(result, next);
+});
+    </pre>
+  </section>
+  <div class="build">
+    <section style="position: absolute; right: 40px;">
+      <pre>
+Step(
+  function () {
+    step1(params, this);
+  },
+  function (result) {
+    step2(result, this.parallel());
+    step3(result, this.parallel());
+    step4(result, this.parallel());
+  },
+  function () {
+    fini();
+  }
+);
+      </pre>
+    </section>
+  </div>
+</article>

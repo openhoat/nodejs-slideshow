@@ -1,0 +1,25 @@
+<article>
+  <h3>
+    Les incontournables – module commander
+  </h3>
+  <ul>
+    <li>Pour exposer des commandes</li>
+    <li>Plus pratique qu'une gestion avec process.argv</li>
+  </ul>
+  <section>
+    <pre>
+commander
+  .version(version)
+  .option('-f, --force', 'force on non-empty directory')
+  .option('-r, --refresh', 'refresh files')
+  ...
+  .parse(process.argv);
+
+appPath = commander.args.shift() || process.cwd();
+
+if (commander.force) {
+  force();
+  ...
+}</pre>
+  </section>
+</article>

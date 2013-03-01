@@ -1,0 +1,32 @@
+<article class="smaller">
+  <h3>
+    Asynchrone – moins gentil
+  </h3>
+  <section>
+      <pre>
+function manageRequest(request, callback) {
+  var product, model, view, content;
+  store.find(id, function (product, err) {
+    if (err) {
+      content = renderer.render('notFound.html', function (content) {
+        callback(content);
+      });
+      return;
+    }
+    model = { id:product._id, name:product.name, price:product.price };
+    view = 'productDetail.html';
+    content = renderer.render(view, model, function (content, err) {
+      if (err) {
+        renderer.render('internalError.html', function (content) {
+          callback(content);
+        });
+        return;
+      }
+      callback(content);
+    });
+  });
+}
+manageRequest(request, function (content) { response.write(content); });
+      </pre>
+  </section>
+</article>

@@ -1,0 +1,43 @@
+<article>
+  <h3>
+    Les incontournables – module async
+  </h3>
+  <ul>
+    <li>forEach, filter, map, log</li>
+    <li>nombreux helpers pour la gestion asynchrone</li>
+  </ul>
+  <section>
+    <pre>
+var async = require('async');
+async.forEach(['a', 'b', 'c'], function (item, callback) {
+  if (item === 'b') {
+    callback(new Error('b forbidden'));
+  } else {
+    console.log(item);
+    callback();
+  }
+}, function (err) {
+  if (err) { console.log('Error :', err);
+  } else { console.log('done'); }
+});</pre>
+  </section>
+  <div class="build">
+    <section style="position: absolute; top: 310px; right: 10px;">
+      <style>
+        .pun {
+          color: black !important;
+        }
+      </style>
+      <pre style="background-color: #ccc;">
+Résultat :
+a
+Error : [Error: b forbidden]
+c
+
+Résultat avec forEachSeries :
+a
+Error : [Error: b forbidden]
+      </pre>
+    </section>
+  </div>
+</article>

@@ -1,0 +1,33 @@
+<article>
+  <h3>
+    Les incontournables – module i18n
+  </h3>
+  <ul style="font-size: 0.8em;margin-top: 10px;">
+    <li>Module de traduction léger, stockage en json</li>
+    <li>Facilité d'intégration avec Express</li>
+  </ul>
+  <section style="position: absolute; bottom: 10px; width: 400px;">
+    <pre>
+var express = require('express')
+  , i18n = require('i18n');
+i18n.configure({
+  locales:['en', 'fr'],
+  register: global
+});
+app.locals({
+  __: i18n.__,
+  __n: i18n.__n
+});
+app.configure(function() {
+  app.use(i18n.init);
+  ...
+});
+var welcome = __('Welcome');</pre>
+  </section>
+  <section class="right" style="width: 350px;">
+    <pre>
+&lt;body&gt;
+&lt;h1&gt;&lt;%= __('Welcome') %&gt;&lt;/h1&gt;
+&lt;/body&gt;</pre>
+  </section>
+</article>

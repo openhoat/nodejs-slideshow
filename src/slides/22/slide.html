@@ -1,0 +1,34 @@
+<article>
+  <h3>
+    Modules
+  </h3>
+  <ul>
+    <li>Node fournit quelques variables globales
+      <ul>
+        <li>module, process, mais pas window</li>
+      </ul>
+    </li>
+    <li>Et un mécanisme pour rendre les choses modulaires
+      <ul>
+        <li>Inspiration pythonesque ☺</li>
+      </ul>
+    </li>
+  </ul>
+  <section class="left" style="width: 240px;">
+    <pre>
+// lib/mymodule.js
+module.exports = {
+  foo: function(){
+    return 'bar';
+  }
+};
+    </pre>
+  </section>
+  <section class="right" style="width: 480px;">
+    <pre>
+// app.js
+var myModule = require('./lib/mymodule');
+myModule.foo();
+    </pre>
+  </section>
+</article>

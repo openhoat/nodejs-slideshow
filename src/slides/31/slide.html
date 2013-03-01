@@ -1,0 +1,25 @@
+<article>
+  <h3>
+    Simple db helper
+  </h3>
+  <section>
+    <pre style="font-size: 0.6em;">
+var mongoose = require('mongoose')
+  , db = { connection:null,
+    connect:function () {
+      db.connection = mongoose.connect('mongodb://localhost:27017/db');
+    }, close:function () {
+      if (db.connection !== null) {
+        mongoose.disconnect();
+        db.connection = null;
+        return true;
+      } else return false;
+    }
+  };
+db.connect();
+process.on('exit', function (code) {
+  var result = db.close();
+  console.log('disconnecting db : ', result);
+});</pre>
+  </section>
+</article>

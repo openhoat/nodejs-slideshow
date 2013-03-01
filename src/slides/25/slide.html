@@ -1,0 +1,17 @@
+<article>
+  <h3>
+    Asynchrone multi steps – à la main
+  </h3>
+  <section class="center" style="width: 400px;margin-top: 100px;">
+    <pre>
+step1(params, function (result) {
+  step2(result, function () {
+    step3(result, function () {
+      step4(result, function () {
+        fini();
+      });
+    });
+  });
+});</pre>
+  </section>
+</article>

@@ -1,0 +1,27 @@
+<article>
+  <h3>
+    Les incontournables – module mongoose
+  </h3>
+  <ul>
+    <li>API mongodb pour Node :
+      <ul>
+        <li>Adaptée au côté asynchrone de Node</li>
+        <li>Convient à de nombreuses situations : local, distant, cloud</li>
+      </ul>
+    </li>
+  </ul>
+  <section style="position: absolute; top: 260px; left: 20px;">
+    <pre style="font-size: 0.6em;">
+var mongoose = require('mongoose')
+  , db = require('./db');
+var contactDao = {
+  entityName:'contact',
+  schema:mongoose.Schema({
+    firstName:{ type:String }, lastName:{ type:String }, phoneNumber:{ type:String }
+  }),
+  getModel:function () {
+    return db.connection.model(contactDao.entityName, contactDao.schema)
+  }
+};</pre>
+  </section>
+</article>

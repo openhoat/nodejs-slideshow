@@ -1,0 +1,40 @@
+<article class="smaller">
+  <h3>
+    Modèle asynchrone - impacts dans le code
+  </h3>
+  <section class="left" style="width: 340px;">
+      <pre>
+
+// Synchrone
+
+function loadData(id) {
+  var data = store.find(id);
+  return data;
+}
+var result = loadData(3);
+console.log('result :', result);
+console.log('continue...');
+
+      </pre>
+  </section>
+  <div class="build">
+    <div>
+      <img src="images/fleche_droite.png" style="position: absolute; top: 250px; left: 430px;">
+      <section class="right" style="width: 340px;">
+      <pre>
+// Asynchrone
+
+function loadData(id, callback) {
+  store.find(id, function(data) {
+    callback(data);
+  });
+}
+loadData(3, function(result) {
+  console.log('result :', result);
+});
+console.log('continue...');
+      </pre>
+      </section>
+    </div>
+  </div>
+</article>

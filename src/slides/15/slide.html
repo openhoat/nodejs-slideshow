@@ -1,0 +1,25 @@
+<article class="smaller">
+  <h3>
+    Synchrone – moins gentil
+  </h3>
+  <section>
+      <pre>
+function manageRequest(request) {
+  var product, model, view, content;
+  product = store.find(id);
+  if (product === null) {
+    content = renderer.render('notFound.html');
+    return content;
+  }
+  model = { id:product._id, name:product.name, price:product.price };
+  view = 'productDetail.html';
+  content = renderer.render(view, model);
+  if (content === null) {
+    return renderer.render('internalError.html');
+  }
+  return content;
+}
+response.write(manageRequest(request));
+      </pre>
+  </section>
+</article>

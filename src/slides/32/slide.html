@@ -1,0 +1,43 @@
+<article>
+  <h3>
+    Les incontournables – module socket.io
+  </h3>
+  <ul style="font-size: 0.8em;margin-top: 10px;">
+    <li>Pour jouer avec les web sockets</li>
+    <li>Modes dégradés pour les navigateurs
+      <ul>
+        <li>Ajax, Adobe Flash Socket, iframe</li>
+      </ul>
+    </li>
+    <li>Facilité d'intégration avec Express</li>
+  </ul>
+  <section style="position: absolute; top: 280px; left: 20px; width: 360px;">
+    <pre style="font-size: 0.6em;">
+var io = require('socket.io')
+  .listen(80);
+io.sockets.on('connection',
+  function (socket) {
+    socket.emit('news', {
+      hello: 'world'
+    });
+    socket.on('my other event',
+      function (data) {
+        console.log(data);
+      });
+});// Serveur</pre>
+  </section>
+  <section class="right" style="position: absolute; top: 280px; right: 20px; width: 480px;">
+    <pre style="font-size: 0.6em;">
+&lt;script src="/socket.io/socket.io.js"&gt;
+&lt;/script&gt;
+&lt;script&gt;
+  var socket = io.connect('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', {
+      my: 'data'
+    });
+  });
+&lt;/script&gt;&lt;!-- Client --&gt;</pre>
+  </section>
+</article>
